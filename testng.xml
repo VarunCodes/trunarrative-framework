@@ -5,6 +5,7 @@
     <classes>
       <class name="stepDefinitions.testBase"/>
       <class name="trunarrative_framework.trunarrative_framework.AppTest"/>
+      <class name="cucumberOptions.TestRunner"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
