@@ -46,3 +46,5 @@ I'd like to view profiles on the Team page
 > Writing Feature file (Gherkin syntax) based on MVP requirements
 
 > Creating a testBase class for generic methods and connecting it with data.properties
+
+> Converting TestNG file and updating including Surefire plugin

@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import org.testng.annotations.Test;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -13,14 +14,12 @@ public class testBase {
 	public WebDriver driver = null;
 	
 	@Test
-	public void Login() throws IOException
+	public void browserSelect() throws IOException
 	{
 		Properties prop = new Properties();
 		FileInputStream fileInputStream = new FileInputStream("/Users/varun/Desktop/Coding/Projects/trunarrative-framework/src/test/java/stepDefinitions/data.properties");
 		prop.load(fileInputStream);
 		
-		//The code below reads the browser name from the properties file
-		//And selects the respective WebDriver
 		if (prop.getProperty("browser").contains("Chrome")) {
 			driver = new ChromeDriver();
 		}
