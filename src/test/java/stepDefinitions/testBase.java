@@ -20,10 +20,12 @@ public class testBase {
 		FileInputStream fileInputStream = new FileInputStream("/Users/varun/Desktop/Coding/Projects/trunarrative-framework/src/test/java/stepDefinitions/data.properties");
 		prop.load(fileInputStream);
 		
-		if (prop.getProperty("browser").contains("Chrome")) {
+		if (prop.getProperty("browser").contains("chrome")) {
+			System.setProperty("webdriver.chrome.driver", "/Users/varun/Desktop/Coding/Projects/chromedriver");
 			driver = new ChromeDriver();
 		}
-		else if (prop.getProperty("browser").contains("Firefox")) {
+		else if (prop.getProperty("browser").contains("firefox")) {
+			System.setProperty("webdriver.gecko.driver", "/Users/varun/Desktop/Coding/Projects/geckodriver");
 			driver = new FirefoxDriver();
 		}
 		driver.get(prop.getProperty("url")); 

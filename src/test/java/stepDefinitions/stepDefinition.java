@@ -8,12 +8,12 @@ import cucumber.api.java.en.And;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
-@RunWith(Cucumber.class)
-public class stepDefinition {
+//@RunWith(Cucumber.class)
+public class stepDefinition extends testBase {
 
     @Given("^that I run a search for \"([^\"]*)\" on Google$")
     public void that_i_run_a_search_for_something_on_google(String strArg1) throws Throwable {
-        throw new PendingException();
+    	browserSelect();
     }
 
     @Given("^I click on the link to the TruNarrative Team$")

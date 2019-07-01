@@ -8,11 +8,6 @@
           <include name="browserSelect"/>
         </methods>
       </class> <!-- stepDefinitions.stepDefinition -->
-      <class name="stepDefinitions.testBase">
-        <methods>
-          <include name="browserSelect"/>
-        </methods>
-      </class> <!-- stepDefinitions.testBase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
