@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class testBase {
@@ -13,8 +15,18 @@ public class testBase {
 	@Test
 	public void Login() throws IOException
 	{
-		Properties properties = new Properties();
+		Properties prop = new Properties();
 		FileInputStream fileInputStream = new FileInputStream("/Users/varun/Desktop/Coding/Projects/trunarrative-framework/src/test/java/stepDefinitions/data.properties");
-		properties.load(fileInputStream);
+		prop.load(fileInputStream);
+		
+		//The code below reads the browser name from the properties file
+		//And selects the respective WebDriver
+		if (prop.getProperty("browser").contains("Chrome")) {
+			driver = new ChromeDriver();
+		}
+		else if (prop.getProperty("browser").contains("Firefox")) {
+			driver = new FirefoxDriver();
+		}
+		driver.get(prop.getProperty("url")); 
 	}
 }
