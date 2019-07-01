@@ -22,7 +22,7 @@ To learn about the TruNarrative team
 I'd like to view profiles on the Team page
 ```
 
-# Tech Stack
+## Tech Stack
 
 | Tech | Description |
 | ------ | ------ |
@@ -31,3 +31,15 @@ I'd like to view profiles on the Team page
 | Cucumber | Automation tool which supports BDD and the Gherkin syntax |
 | Maven | Provides version control for dependencies and project file structure |
 | TestNG | Testing framework for test case functionality |
+
+## Misc
+
+| Tech | Description |
+| ------ | ------ |
+| Tidy Gherkin | Plugin for generating stepDefinitions using Feature steps |
+
+## My approach
+> Using Maven to create a filestructure which facilitates Cucumber's BDD syntax
+> Adding the correct dependencies for Selenium, JUnit, and Cucumber
+> Writing the Feature and stepDefinition files based on MVP requirements
+
