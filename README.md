@@ -43,5 +43,6 @@ I'd like to view profiles on the Team page
 
 > Adding the correct dependencies for Selenium, JUnit, and Cucumber
 
-> Writing the Feature and stepDefinition files based on MVP requirements
+> Writing Feature file (Gherkin syntax) based on MVP requirements
 
+> Creating a testBase class for generic methods and connecting it with data.properties
