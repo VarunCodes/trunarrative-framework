@@ -12,7 +12,7 @@ I'd like to run a search and view the first result
 
 ```
 As a user 
-To ensure I'm on the TruNarrative hompage
+To ensure I'm on the TruNarrative homepage
 I'd like to see the offial strap line
 ```
 
@@ -29,3 +29,4 @@ I'd like to view profiles on the Team page
 | Java | Class based object oriented programming language |
 | Selenium WebDriver | Web automation framework for many browsers |
 | Cucumber | Automation tool which supports BDD and the Gherkin syntax |
+| Maven | Provides version control for dependencies and project file structure |
