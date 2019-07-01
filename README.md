@@ -26,9 +26,8 @@ I'd like to view profiles on the Team page
 
 | Tech | Description |
 | ------ | ------ |
-| Java | Class based object oriented programming language |
-| Selenium WebDriver | Web automation framework for many browsers |
-| Cucumber | Automation tool which supports BDD and the Gherkin syntax |
+| Selenium WebDriver | Web automation framework |
+| Cucumber | Automation tool supporting BDD and the Gherkin syntax |
 | Maven | Provides version control for dependencies and project file structure |
 | TestNG | Testing framework for test case functionality |
 
@@ -36,7 +35,7 @@ I'd like to view profiles on the Team page
 
 | Tech | Description |
 | ------ | ------ |
-| Tidy Gherkin | Plugin for generating stepDefinitions using Feature steps |
+| Tidy Gherkin | Browser-based plugin for generating stepDefinitions using Feature steps |
 
 ## My approach
 > Using Maven to create a filestructure which facilitates Cucumber's BDD syntax
@@ -47,4 +46,4 @@ I'd like to view profiles on the Team page
 
 > Creating a testBase class for generic methods and connecting it with data.properties
 
-> Converting TestNG file and including Surefire plugin
+> Integrating stepDefinitions/Cucumber and TestNG by creating a TestRunner file
