@@ -30,3 +30,4 @@ I'd like to view profiles on the Team page
 | Selenium WebDriver | Web automation framework for many browsers |
 | Cucumber | Automation tool which supports BDD and the Gherkin syntax |
 | Maven | Provides version control for dependencies and project file structure |
+| TestNG | Testing framework for test case functionality |
