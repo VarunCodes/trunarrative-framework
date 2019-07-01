@@ -1,6 +1,7 @@
-package stepDefinitions;
+package testBase;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -11,13 +12,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class testBase {
-	public WebDriver driver = null;
-	
-	@Test
-	public void browserSelect() throws IOException
+	public WebDriver driver;
+	public Properties prop;
+
+	public WebDriver browserInitialize() throws IOException
 	{
-		Properties prop = new Properties();
-		FileInputStream fileInputStream = new FileInputStream("/Users/varun/Desktop/Coding/Projects/trunarrative-framework/src/test/java/stepDefinitions/data.properties");
+		prop = new Properties();
+		FileInputStream fileInputStream = new FileInputStream("/Users/varun/Desktop/Coding/Projects/trunarrative-framework/src/test/java/testBase/data.properties");
 		prop.load(fileInputStream);
 		
 		if (prop.getProperty("browser").contains("chrome")) {
@@ -28,6 +29,9 @@ public class testBase {
 			System.setProperty("webdriver.gecko.driver", "/Users/varun/Desktop/Coding/Projects/geckodriver");
 			driver = new FirefoxDriver();
 		}
-		driver.get(prop.getProperty("url")); 
+		return driver;
+//		driver.get(prop.getProperty("googleURL"));
+//		driver.get(prop.getProperty("truNarrativeURL"));
 	}
+	
 }

@@ -3,8 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="stepDefinitions.testBase"/>
-      <class name="trunarrative_framework.trunarrative_framework.AppTest"/>
+<!--       <class name="stepDefinitions.testBase"/> -->
+<!--       <class name="stepDefinitions.stepDefinition"/> -->
+<!--       <class name="trunarrative_framework.trunarrative_framework.AppTest"/> -->
       <class name="cucumberOptions.TestRunner"/>
     </classes>
   </test> <!-- Test -->
