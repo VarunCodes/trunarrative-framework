@@ -47,4 +47,4 @@ I'd like to view profiles on the Team page
 
 > Creating a testBase class for generic methods and connecting it with data.properties
 
-> Converting TestNG file and updating including Surefire plugin
+> Converting TestNG file and including Surefire plugin
