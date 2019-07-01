@@ -40,6 +40,8 @@ I'd like to view profiles on the Team page
 
 ## My approach
 > Using Maven to create a filestructure which facilitates Cucumber's BDD syntax
+
 > Adding the correct dependencies for Selenium, JUnit, and Cucumber
+
 > Writing the Feature and stepDefinition files based on MVP requirements
 
