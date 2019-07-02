@@ -8,18 +8,22 @@ import cucumber.api.junit.Cucumber;
 import testBase.testBase;
 
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 
 //@Parameters({"URL"})
 @RunWith(Cucumber.class)
 public class stepDefinition extends testBase {
+	public String xpathFirstResult = "//div[@class='g']//div//div//div[@class='rc']//h3[@class='LC20lb']";
+	public String xpathGoogleSearchButton = "//*[@id=\\'tsf\\']/div[2]/div/div[3]/center/input[1]";
 	
-    @Given("^that I run a search for TruNarrative on Google$")
-    public void that_i_run_a_search_for_trunarrative_on_google() throws Throwable {
+    @Given("^I run a search for \"([^\"]*)\" on Google$")
+    public void i_run_a_search_for_something_on_google(String searchTerm) throws Throwable {
     	driver = browserInitialize();
     	driver.get(prop.getProperty("googleURL"));
-    	driver.get(prop.getProperty("trunarrativeURL"));
-    	//driver.get("www.youtube.com");
+    	driver.findElement(By.name("q")).sendKeys(searchTerm);
+		driver.findElement(By.xpath("xpathGoogleSearchButton")).click();
     }
 
     @Given("^I click on the link to the TruNarrative Team$")
@@ -49,7 +53,9 @@ public class stepDefinition extends testBase {
 
     @And("^it appears as the first search result$")
     public void it_appears_as_the_first_search_result() throws Throwable {
-    	System.out.println("Pass");
+    	String resultMatch = driver.findElement(By.xpath(xpathFirstResult)).getText();
+		Assert.assertEquals(resultMatch, "TruNarrative");
+		System.out.println("The first search result is correct");
     }
 
 }

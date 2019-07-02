@@ -2,7 +2,7 @@ Feature: TruNarrative Navigation
 
 
 Scenario: Finding TruNarrative through Google 
-	Given that I run a search for TruNarrative on Google
+	Given I run a search for "TruNarrative" on Google
 	And it appears as the first search result 
 	When I select the link to the homepage 
 	Then I can view the TruNarrative strap line 
