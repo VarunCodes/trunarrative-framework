@@ -9,12 +9,14 @@ import testBase.testBase;
 
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 
 //@Parameters({"URL"})
 @RunWith(Cucumber.class)
 public class stepDefinition extends testBase {
+	public String resultMatch;
 	public String xpathFirstResult = "//div[@class='g']//div//div//div[@class='rc']//h3[@class='LC20lb']";
 	public String xpathGoogleSearchButton = "//*[@id=\\'tsf\\']/div[2]/div/div[3]/center/input[1]";
 	
@@ -29,6 +31,13 @@ public class stepDefinition extends testBase {
     @Given("^I click on the link to the TruNarrative Team$")
     public void i_click_on_the_link_to_the_trunarrative_team() throws Throwable {
     	System.out.println("Pass");
+    }
+    
+    @Given("^it points to \"([^\"]*)\"$")
+    public void it_points_to(String resultUrl) throws Throwable {
+    	WebElement firstResult = driver.findElement(By.xpath(xpathFirstResult));
+    	firstResult.getAttribute("href");
+    	Assert.assertEquals(firstResult, resultUrl);
     }
     
     @When("^I select the link to the homepage$")

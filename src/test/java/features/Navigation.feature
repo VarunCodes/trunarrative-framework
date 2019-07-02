@@ -4,6 +4,7 @@ Feature: TruNarrative Navigation
 Scenario: Finding TruNarrative through Google 
 	Given I run a search for "TruNarrative" on Google
 	And it appears as the first search result 
+	And it points to "https://trunarrative.com/"
 	When I select the link to the homepage 
 	Then I can view the TruNarrative strap line 
 	
