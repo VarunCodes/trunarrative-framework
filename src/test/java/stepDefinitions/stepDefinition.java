@@ -3,15 +3,19 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.junit.Cucumber;
 import testBase.testBase;
 
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.Point;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 
@@ -61,8 +65,6 @@ public class stepDefinition extends testBase {
     	System.out.println("Pass");
     	int actualTeamCount = driver.findElements(By.className("stack-img-content")).size();
     	Assert.assertEquals(actualTeamCount, teamCount);
-    	//System.out.println(actualTeamCount);
-    	//System.out.println(teamCount);
     }
 
     @Then("^I can view the TruNarrative strap line$")
@@ -70,11 +72,27 @@ public class stepDefinition extends testBase {
     	System.out.println("Pass");
     }
 
-    @Then("^that the following members have their respective roles$")
-    public void that_the_following_members_have_their_respective_roles() throws Throwable {
-    	System.out.println("Pass");
-    }
+    @Then("^the following members have their respective roles:$")
+    public void the_following_members_have_their_respective_roles(DataTable teamTable) throws Throwable {
+//    	getLocation()
+    	List<Map<String, String>> list = teamTable.asMaps(String.class, String.class);
+    	for(int i=0; i<list.size(); i++) {
+    		Point namePoint = driver.findElement(By.linkText(list.get(i).get("name"))).getLocation();
+    		System.out.println("X Position : " + namePoint.x);
+    		System.out.println("Y Position : " + namePoint.y);
+    		
+    		Point rolePoint = driver.findElement(By.linkText(list.get(i).get("role"))).getLocation();
+    		System.out.println("X Position : " + rolePoint.x);
+    		System.out.println("Y Position : " + rolePoint.y);
+    		
+    		Assert.assertEquals("John Lord", list.get(i).get("name"));
+    		Assert.assertEquals("Founder and CEO", list.get(i).get("role"));
 
+    		System.out.println(list.get(i).get("name"));
+    		System.out.println(list.get(i).get("role"));
+    	}
+    }
+    
     @And("^it appears as the first search result$")
     public void it_appears_as_the_first_search_result() throws Throwable {
     	//String resultMatch = driver.findElement(By.xpath(xpathFirstResult)).getText();
