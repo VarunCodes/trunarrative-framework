@@ -77,7 +77,7 @@ public class stepDefinition extends testBase {
 //    	getLocation()
     	List<Map<String, String>> list = teamTable.asMaps(String.class, String.class);
     	for(int i=0; i<list.size(); i++) {
-    		Point namePoint = driver.findElement(By.linkText(list.get(i).get("name"))).getLocation();
+    		Point namePoint = driver.findElement(By.linkText(list.get(i).get("name"))).getLocation();   		
     		System.out.println("X Position : " + namePoint.x);
     		System.out.println("Y Position : " + namePoint.y);
     		
