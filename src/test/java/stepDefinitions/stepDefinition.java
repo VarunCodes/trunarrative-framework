@@ -7,6 +7,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.junit.Cucumber;
 import testBase.testBase;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -25,29 +27,42 @@ public class stepDefinition extends testBase {
     	driver = browserInitialize();
     	driver.get(prop.getProperty("googleURL"));
     	driver.findElement(By.name("q")).sendKeys(searchTerm);
-		driver.findElement(By.xpath("xpathGoogleSearchButton")).click();
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		driver.findElement(By.name("btnK")).click();
     }
 
     @Given("^I click on the link to the TruNarrative Team$")
     public void i_click_on_the_link_to_the_trunarrative_team() throws Throwable {
+    	driver.findElement(By.id("menu-item-6055")).click();
+    	driver.findElement(By.id("menu-item-6388")).click();
     	System.out.println("Pass");
     }
     
     @Given("^it points to \"([^\"]*)\"$")
     public void it_points_to(String resultUrl) throws Throwable {
-    	WebElement firstResult = driver.findElement(By.xpath(xpathFirstResult));
-    	firstResult.getAttribute("href");
-    	Assert.assertEquals(firstResult, resultUrl);
+    	String actualFirstUrl = driver.findElement(By.linkText("TruNarrative")).getAttribute("href");
+    	Assert.assertEquals(actualFirstUrl, resultUrl);
     }
     
-    @When("^I select the link to the homepage$")
-    public void i_select_the_link_to_the_homepage() throws Throwable {
-    	System.out.println("Pass");
+    @Given("^I am on the TruNarrative homepage$")
+    public void i_am_on_the_trunarrative_homepage() throws Throwable {
+    	driver = browserInitialize();
+    	driver.manage().window().maximize();
+        driver.get("https://trunarrative.com/");
+    }
+    
+    @When("^I click the first result$")
+    public void i_clik_the_first_result() throws Throwable {
+    	driver.findElement(By.xpath(xpathFirstResult)).click();
     }
 
     @When("^I view \"([^\"]*)\" leadership team members$")
-    public void i_view_something_leadership_team_members(String strArg1) throws Throwable {
+    public void i_view_something_leadership_team_members(int teamCount) throws Throwable {
     	System.out.println("Pass");
+    	int actualTeamCount = driver.findElements(By.className("stack-img-content")).size();
+    	Assert.assertEquals(actualTeamCount, teamCount);
+    	//System.out.println(actualTeamCount);
+    	//System.out.println(teamCount);
     }
 
     @Then("^I can view the TruNarrative strap line$")
@@ -62,7 +77,8 @@ public class stepDefinition extends testBase {
 
     @And("^it appears as the first search result$")
     public void it_appears_as_the_first_search_result() throws Throwable {
-    	String resultMatch = driver.findElement(By.xpath(xpathFirstResult)).getText();
+    	//String resultMatch = driver.findElement(By.xpath(xpathFirstResult)).getText();
+    	String resultMatch = driver.findElement(By.cssSelector("h3.LC20lb")).getText();  	
 		Assert.assertEquals(resultMatch, "TruNarrative");
 		System.out.println("The first search result is correct");
     }
